@@ -1,0 +1,1 @@
+{"errors":[{"component":"general","errorCode":"2314","formattedMessage":"ParserError: Expected ';' but got '}'\n  --> src/MultiSig.sol:88:5:\n   |\n88 |     }\n   |     ^\n\n","message":"Expected ';' but got '}'","severity":"error","sourceLocation":{"end":2545,"file":"src/MultiSig.sol","start":2544},"type":"ParserError"}],"sources":{}}
