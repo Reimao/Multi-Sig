@@ -35,10 +35,10 @@
         }
       }
     },
-    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/MultiSig.sol": {
-      "lastModificationDate": 1645224458029,
-      "contentHash": "13ba082aa8c86a61feb8c5a24e0e7955",
-      "sourceName": "src/MultiSig.sol",
+    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/Multisig.sol": {
+      "lastModificationDate": 1645302415910,
+      "contentHash": "dd62568b34ff149c4d8ccf6e990407d7",
+      "sourceName": "src/Multisig.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -64,15 +64,15 @@
       "imports": [],
       "versionRequirement": ">0.8.0, <=0.9.0",
       "artifacts": {
-        "MultiSig": {
-          "0.8.10+commit.fc410830.Linux.gcc": "MultiSig.sol/MultiSig.json"
+        "Multisig": {
+          "0.8.10+commit.fc410830.Linux.gcc": "Multisig.sol/Multisig.json"
         }
       }
     },
-    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/test/Contract.t.sol": {
-      "lastModificationDate": 1645216220748,
-      "contentHash": "dda1099642a9e5d1aae156e5898d53ff",
-      "sourceName": "src/test/Contract.t.sol",
+    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/test/Multisig.t.sol": {
+      "lastModificationDate": 1645391312492,
+      "contentHash": "264360d091bfa15f73378e43295eee8d",
+      "sourceName": "src/test/Multisig.t.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -96,12 +96,16 @@
         }
       },
       "imports": [
-        "lib/ds-test/src/test.sol"
+        "lib/ds-test/src/test.sol",
+        "src/Multisig.sol"
       ],
       "versionRequirement": ">0.8.0, <=0.9.0",
       "artifacts": {
-        "ContractTest": {
-          "0.8.10+commit.fc410830.Linux.gcc": "Contract.t.sol/ContractTest.json"
+        "MultisigTest": {
+          "0.8.10+commit.fc410830.Linux.gcc": "Multisig.t.sol/MultisigTest.json"
+        },
+        "Vm": {
+          "0.8.10+commit.fc410830.Linux.gcc": "Multisig.t.sol/Vm.json"
         }
       }
     }

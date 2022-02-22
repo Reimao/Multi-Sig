@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >0.8.0 <=0.9.0;
 
-contract MultiSig {
+contract Multisig {
   
   struct Transaction {
     address to;
@@ -41,7 +41,9 @@ contract MultiSig {
     address[] memory _signers,
     uint8 _requiredSignatures
   ) payable {
-    require(_requiredSignatures > 0 && _requiredSignatures <= _signers.length);
+    require(_requiredSignatures > 0 && _requiredSignatures <= _signers.length, "Invalid required signatures amount");
+    
+    requiredSignatures = _requiredSignatures;
 
     for (uint8 i = 0; i < _signers.length; i++) {
       require(_signers[i] != address(0), "Zero address can't be a signer");
@@ -55,6 +57,10 @@ contract MultiSig {
 
   receive() external payable {
     emit Deposit(msg.sender, msg.value);
+  }
+
+  function signersCount() external view returns (uint) {
+    return signers.length;
   }
 
   function initializeTransaction(
