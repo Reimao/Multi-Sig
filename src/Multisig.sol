@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >0.8.0 <=0.9.0;
+pragma solidity >=0.8.0 <=0.9.0;
 
 contract Multisig {
   
@@ -59,35 +59,39 @@ contract Multisig {
     emit Deposit(msg.sender, msg.value);
   }
 
-  function getSigners() external view returns (address[] memory) {
+  function getSigners() public view returns (address[] memory) {
     return signers;
   }
 
-  function signersCount() external view returns (uint256) {
+  function signersCount() public view returns (uint256) {
     return signers.length;
   }
 
-  function getTransactions() external view returns (Transaction[] memory) {
+  function getTransactions() public view returns (Transaction[] memory) {
     return transactions;
+  }
+
+  function balance() public view returns (uint256) {
+    return address(this).balance;
   }
 
   function initializeTransaction(
     address _to,
     uint256 _value,
     bytes calldata _data
-  )  external onlySigner {
+  )  public onlySigner {
     
     transactions.push(Transaction(_to, _value, _data, false));
     emit Initialize(uint32(transactions.length - 1), msg.sender);
   }
 
-  function signTransaction(uint32 _id) external onlySigner transactionExists(_id) notExecuted(_id) {
+  function signTransaction(uint32 _id) public onlySigner transactionExists(_id) notExecuted(_id) {
     
     hasSigned[_id][msg.sender] = true;
     emit Sign(_id, msg.sender);
   }
 
-  function unsignTransaction(uint32 _id) external onlySigner transactionExists(_id) notExecuted(_id) {
+  function unsignTransaction(uint32 _id) public onlySigner transactionExists(_id) notExecuted(_id) {
     mapping(uint32 => mapping(address => bool)) storage _hasSigned = hasSigned;
     require(_hasSigned[_id][msg.sender], "Not signed");
 
@@ -109,15 +113,17 @@ contract Multisig {
    return false;
   }
 
-  function executeTransaction(uint32 _id) public onlySigner transactionExists(_id) notExecuted(_id) {
+  function executeTransaction(uint32 _id) public onlySigner transactionExists(_id) notExecuted(_id) returns (bytes memory){
     require(isApproved(_id), "Not sufficient signatures");
     
     Transaction storage transaction = transactions[_id];
     transaction.executed = true;
 
-    (bool success, ) = transaction.to.call{value: transaction.value}(transaction.data);
+    (bool success, bytes memory data) = transaction.to.call{value: transaction.value}(transaction.data);
     require(success, "Transaction failed");
 
     emit Execute(_id, msg.sender);
+    
+    return data;
   }
 }

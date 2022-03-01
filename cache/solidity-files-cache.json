@@ -36,8 +36,8 @@
       }
     },
     "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/Multisig.sol": {
-      "lastModificationDate": 1645714116199,
-      "contentHash": "09ad2499055c1d0700f4b6596e2012fb",
+      "lastModificationDate": 1646167726165,
+      "contentHash": "447daa53d1587feac26e649ec7526b61",
       "sourceName": "src/Multisig.sol",
       "solcConfig": {
         "settings": {
@@ -62,16 +62,50 @@
         }
       },
       "imports": [],
-      "versionRequirement": ">0.8.0, <=0.9.0",
+      "versionRequirement": ">=0.8.0, <=0.9.0",
       "artifacts": {
         "Multisig": {
           "0.8.10+commit.fc410830.Linux.gcc": "Multisig.sol/Multisig.json"
         }
       }
     },
+    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/TestContract.sol": {
+      "lastModificationDate": 1646167014977,
+      "contentHash": "034bd5a6b794fd1c9188efb0a968cfcc",
+      "sourceName": "src/TestContract.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.8.0, <0.9.0",
+      "artifacts": {
+        "TestContract": {
+          "0.8.10+commit.fc410830.Linux.gcc": "TestContract.sol/TestContract.json"
+        }
+      }
+    },
     "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/test/Multisig.t.sol": {
-      "lastModificationDate": 1645391312492,
-      "contentHash": "264360d091bfa15f73378e43295eee8d",
+      "lastModificationDate": 1646167932772,
+      "contentHash": "ca276a35054571217cda8d80d4463275",
       "sourceName": "src/test/Multisig.t.sol",
       "solcConfig": {
         "settings": {
@@ -97,9 +131,10 @@
       },
       "imports": [
         "lib/ds-test/src/test.sol",
-        "src/Multisig.sol"
+        "src/Multisig.sol",
+        "src/TestContract.sol"
       ],
-      "versionRequirement": ">0.8.0, <=0.9.0",
+      "versionRequirement": ">=0.8.0, <=0.9.0",
       "artifacts": {
         "MultisigTest": {
           "0.8.10+commit.fc410830.Linux.gcc": "Multisig.t.sol/MultisigTest.json"
