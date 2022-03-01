@@ -15,6 +15,7 @@ contract TestContract {
 
   function setA(uint256 _a) public returns (uint256) {
     a = _a;
+    return a;
   }
 
 }

@@ -89,7 +89,7 @@ contract MultisigTest is DSTest {
     assertEq(testContract.balance(), 5);
   }
 
-  function testExecuteTransactionNoData() public {
+  function testExecuteTransaction_NoData() public {
     vm.prank(signer1);
     multisig.initializeTransaction(address(testContract), 50, "");
     
@@ -106,9 +106,8 @@ contract MultisigTest is DSTest {
     multisig.executeTransaction(0);
   }
 
-  function testExecuteTransactionWithData() public {
+  function testExecuteTransaction_WithData(uint256 a) public {
     vm.prank(signer1);
-    uint256 a;
     bytes memory data = abi.encodeWithSignature("setA(uint256)", a);
     multisig.initializeTransaction(address(testContract), 0, data);
     
@@ -123,6 +122,23 @@ contract MultisigTest is DSTest {
 
     vm.prank(signer1);
     bytes memory data2 = multisig.executeTransaction(0);
+    emit logs(data2);
+    emit logs(abi.encodePacked(a));
     assertEq(bytes32(data2), bytes32(abi.encodePacked(a)));
+  }
+
+  function testFailExecuteTransaction_NotApproved() public {
+    vm.prank(signer1);
+    multisig.initializeTransaction(address(testContract), 50, "");
+    
+    vm.prank(signer1);
+    multisig.signTransaction(0);
+    vm.prank(signer2);
+    multisig.signTransaction(0);
+
+    address(multisig).call{value: 100}("");
+
+    vm.prank(signer1);
+    multisig.executeTransaction(0);
   }
 }

@@ -70,8 +70,8 @@
       }
     },
     "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/TestContract.sol": {
-      "lastModificationDate": 1646167014977,
-      "contentHash": "034bd5a6b794fd1c9188efb0a968cfcc",
+      "lastModificationDate": 1646168351564,
+      "contentHash": "37e46bd147bc2476b47c7c95442fd8e0",
       "sourceName": "src/TestContract.sol",
       "solcConfig": {
         "settings": {
@@ -104,8 +104,8 @@
       }
     },
     "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/test/Multisig.t.sol": {
-      "lastModificationDate": 1646167932772,
-      "contentHash": "ca276a35054571217cda8d80d4463275",
+      "lastModificationDate": 1646168604564,
+      "contentHash": "ef82321804ae2ac3b2c3ff0d90b30e32",
       "sourceName": "src/test/Multisig.t.sol",
       "solcConfig": {
         "settings": {
