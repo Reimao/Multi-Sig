@@ -59,8 +59,16 @@ contract Multisig {
     emit Deposit(msg.sender, msg.value);
   }
 
-  function signersCount() external view returns (uint) {
+  function getSigners() external view returns (address[] memory) {
+    return signers;
+  }
+
+  function signersCount() external view returns (uint256) {
     return signers.length;
+  }
+
+  function getTransactions() external view returns (Transaction[] memory) {
+    return transactions;
   }
 
   function initializeTransaction(
@@ -101,7 +109,15 @@ contract Multisig {
    return false;
   }
 
-  function executeTransaction(uint32 _id) public onlySigner notExecuted(_id) {
+  function executeTransaction(uint32 _id) public onlySigner transactionExists(_id) notExecuted(_id) {
     require(isApproved(_id), "Not sufficient signatures");
+    
+    Transaction storage transaction = transactions[_id];
+    transaction.executed = true;
+
+    (bool success, ) = transaction.to.call{value: transaction.value}(transaction.data);
+    require(success, "Transaction failed");
+
+    emit Execute(_id, msg.sender);
   }
 }

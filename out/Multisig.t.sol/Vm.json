@@ -1,8 +1,6 @@
 {
   "abi": [
     {
-      "type": "function",
-      "name": "prank",
       "inputs": [
         {
           "internalType": "address",
@@ -10,12 +8,12 @@
           "type": "address"
         }
       ],
+      "name": "prank",
       "outputs": [],
-      "stateMutability": "nonpayable"
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      "type": "function",
-      "name": "startPrank",
       "inputs": [
         {
           "internalType": "address",
@@ -23,8 +21,10 @@
           "type": "address"
         }
       ],
+      "name": "startPrank",
       "outputs": [],
-      "stateMutability": "nonpayable"
+      "stateMutability": "nonpayable",
+      "type": "function"
     }
   ],
   "bytecode": {
@@ -32,7 +32,7 @@
     "sourceMap": "",
     "linkReferences": {}
   },
-  "deployed_bytecode": {
+  "deployedBytecode": {
     "object": "0x",
     "sourceMap": "",
     "linkReferences": {}

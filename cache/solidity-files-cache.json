@@ -36,8 +36,8 @@
       }
     },
     "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/Multisig.sol": {
-      "lastModificationDate": 1645302415910,
-      "contentHash": "dd62568b34ff149c4d8ccf6e990407d7",
+      "lastModificationDate": 1645714116199,
+      "contentHash": "09ad2499055c1d0700f4b6596e2012fb",
       "sourceName": "src/Multisig.sol",
       "solcConfig": {
         "settings": {
