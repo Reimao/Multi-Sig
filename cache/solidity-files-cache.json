@@ -1,7 +1,7 @@
 {
-  "_format": "ethers-rs-sol-cache-1",
+  "_format": "ethers-rs-sol-cache-2",
   "files": {
-    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/lib/ds-test/src/test.sol": {
+    "/home/reimao/workspace/web3_dev/evm/solidity/Multi-Sig/lib/ds-test/src/test.sol": {
       "lastModificationDate": 1645033869308,
       "contentHash": "5d45a46528eaf8a26f0a8d93669f3148",
       "sourceName": "lib/ds-test/src/test.sol",
@@ -28,17 +28,17 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        ">=0.4.23"
-      ],
-      "artifacts": [
-        "DSTest"
-      ]
+      "versionRequirement": ">=0.4.23",
+      "artifacts": {
+        "DSTest": {
+          "0.8.10+commit.fc410830.Linux.gcc": "test.sol/DSTest.json"
+        }
+      }
     },
-    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/Contract.sol": {
-      "lastModificationDate": 1645033868716,
-      "contentHash": "06f2ae5d0b8d24e78c123c3364d518f8",
-      "sourceName": "src/Contract.sol",
+    "/home/reimao/workspace/web3_dev/evm/solidity/Multi-Sig/src/Multisig.sol": {
+      "lastModificationDate": 1646167726165,
+      "contentHash": "447daa53d1587feac26e649ec7526b61",
+      "sourceName": "src/Multisig.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -62,17 +62,51 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "0.8.10"
-      ],
-      "artifacts": [
-        "Contract"
-      ]
+      "versionRequirement": ">=0.8.0, <=0.9.0",
+      "artifacts": {
+        "Multisig": {
+          "0.8.10+commit.fc410830.Linux.gcc": "Multisig.sol/Multisig.json"
+        }
+      }
     },
-    "/home/reimao/workspace/web3_dev/ethereum/solidity/Multi-Sig/src/test/Contract.t.sol": {
-      "lastModificationDate": 1645033868716,
-      "contentHash": "7016738fe305fd90c36ea69a5cb2a78c",
-      "sourceName": "src/test/Contract.t.sol",
+    "/home/reimao/workspace/web3_dev/evm/solidity/Multi-Sig/src/TestContract.sol": {
+      "lastModificationDate": 1646168351564,
+      "contentHash": "37e46bd147bc2476b47c7c95442fd8e0",
+      "sourceName": "src/TestContract.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.8.0, <0.9.0",
+      "artifacts": {
+        "TestContract": {
+          "0.8.10+commit.fc410830.Linux.gcc": "TestContract.sol/TestContract.json"
+        }
+      }
+    },
+    "/home/reimao/workspace/web3_dev/evm/solidity/Multi-Sig/src/test/Multisig.t.sol": {
+      "lastModificationDate": 1646168778662,
+      "contentHash": "ef82321804ae2ac3b2c3ff0d90b30e32",
+      "sourceName": "src/test/Multisig.t.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -96,14 +130,19 @@
         }
       },
       "imports": [
-        "ds-test/test.sol"
+        "lib/ds-test/src/test.sol",
+        "src/Multisig.sol",
+        "src/TestContract.sol"
       ],
-      "versionPragmas": [
-        "0.8.10"
-      ],
-      "artifacts": [
-        "ContractTest"
-      ]
+      "versionRequirement": ">=0.8.0, <=0.9.0",
+      "artifacts": {
+        "MultisigTest": {
+          "0.8.10+commit.fc410830.Linux.gcc": "Multisig.t.sol/MultisigTest.json"
+        },
+        "Vm": {
+          "0.8.10+commit.fc410830.Linux.gcc": "Multisig.t.sol/Vm.json"
+        }
+      }
     }
   }
 }
