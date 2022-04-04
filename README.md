@@ -1,2 +1,2 @@
 # Multi-Sig
-A multi-sig wallet implementation on solidity
+A solidity multi-sig wallet implementation
